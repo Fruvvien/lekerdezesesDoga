@@ -37,7 +37,7 @@ namespace lekerdezesesDoga
                     Kiiratas(connection, q3, "leggyakoribb foglalkozású személyek");
                     string q4 = "SELECT szemely.nev, kituntetes.ev FROM szemely INNER JOIN kituntetes ON szemely.az = kituntetes.szemaz WHERE kituntetes.ev IN (SELECT kituntetes.ev FROM `kituntetes` INNER JOIN szemely ON kituntetes.szemaz = szemely.az WHERE szemely.nev = \"Bertha Bulcsu\");";
                     Kiiratas(connection, q4, "Bertha Bulcsuval együtt kitüntetett személyek");
-                    string q5 = "SELECT DISTINCT foglalkozas.fognev, COUNT(foglalkozas.fognev) as foglalkozasokSzama FROM `foglalkozas`  INNER JOIN szemely ON foglalkozas.szemaz = szemely.az GROUP BY foglalkozas.fognev HAVING foglalkozasokSzama < 3  \r\nORDER BY `foglalkozasokSzama` DESC;";
+                    string q5 = "SELECT foglalkozas.fognev, COUNT(foglalkozas.fognev) as foglalkozasokSzama FROM `foglalkozas`  INNER JOIN szemely ON foglalkozas.szemaz = szemely.az GROUP BY foglalkozas.fognev HAVING foglalkozasokSzama < 3  \r\nORDER BY `foglalkozasokSzama` DESC;";
                     Kiiratas(connection, q5, "3-nál kevesebb darabszámú foglalkozás");
 
 
